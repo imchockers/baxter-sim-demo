@@ -16,6 +16,12 @@ WORKDIR $CATKIN_WS/src
 RUN wstool init . && \
     wstool merge https://raw.githubusercontent.com/vicariousinc/baxter_simulator/${ROS_DISTRO}-gazebo7/baxter_simulator.rosinstall && \
     wstool update
+# Add time_jump package
+RUN catkin_create_pkg time_jump rospy tf2_msgs jsk_recognition_msgs message_filters
+RUN mkdir ./time_jump/scripts
+WORKDIR $CATKIN_WS/src/time_jump/scripts
+RUN git clone https://github.com/cosc2408-mixed-reality/ros-tf-time-jump.git
+WORKDIR $CATKIN_WS/src
 
 # Update apt-get because previous images clear this cache
 # Commands are combined in single RUN statement with "apt/lists" folder removal to reduce image size
@@ -69,3 +75,5 @@ WORKDIR /root
 ADD simstart simstart
 RUN chmod +x simstart
 COPY rosenv.sh rosenv.sh
+COPY 2019-03-27-14-16-27.bag 2019-03-27-14-16-27.bag
+COPY 2019-03-27-14-20-32.bag 2019-03-27-14-20-32.bag
