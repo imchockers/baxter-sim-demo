@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+echo "Running time jump..."
+rosrun time_jump time_jump.py &> time_jump.log &
+echo "Running user tracker..."
+rosrun kinect_based_arm_tracking tf_user_tracker.py &> user_tracker.log &
+echo "Running kinect arm controller"
+rosrun kinect_based_arm_tracking tf_listen_v8_controller.py &> tf_listen_v8_controller.log &
+echo "Running kinect arm publisher"
+rosrun kinect_based_arm_tracking tf_listen_v8_newpub.py &> tf_listen_v8_newpub.log &
+echo "Ready! - For rosbag sim run: rosbag play <bagfile> /tf:=/tf_old"
