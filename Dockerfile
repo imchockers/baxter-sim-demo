@@ -23,7 +23,7 @@ WORKDIR $CATKIN_WS/src/time_jump/scripts
 RUN git clone https://github.com/cosc2408-mixed-reality/ros-tf-time-jump.git
 WORKDIR $CATKIN_WS/src
 
-RUN git clone https://github.com/seanshi007/kinect_based_arm_tracking.git
+RUN git clone https://github.com/imchockers/kinect_based_arm_tracking.git
 
 # Update apt-get because previous images clear this cache
 # Commands are combined in single RUN statement with "apt/lists" folder removal to reduce image size
