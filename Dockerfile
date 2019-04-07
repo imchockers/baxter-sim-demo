@@ -17,12 +17,13 @@ RUN wstool init . && \
     wstool merge https://raw.githubusercontent.com/vicariousinc/baxter_simulator/${ROS_DISTRO}-gazebo7/baxter_simulator.rosinstall && \
     wstool update
 # Add time_jump package
-RUN catkin_create_pkg time_jump rospy tf2_msgs jsk_recognition_msgs message_filters
-RUN mkdir ./time_jump/scripts
-WORKDIR $CATKIN_WS/src/time_jump/scripts
-RUN git clone https://github.com/cosc2408-mixed-reality/ros-tf-time-jump.git
-WORKDIR $CATKIN_WS/src
+#RUN catkin_create_pkg time_jump rospy tf2_msgs jsk_recognition_msgs message_filters
+#RUN mkdir ./time_jump/scripts
+#WORKDIR $CATKIN_WS/src/time_jump/scripts
+#RUN git clone https://github.com/cosc2408-mixed-reality/ros-tf-time-jump.git
+#WORKDIR $CATKIN_WS/src
 
+RUN git clone https://github.com/imchockers/ros-tf-time-jump.git
 RUN git clone https://github.com/imchockers/kinect_based_arm_tracking.git
 
 # Update apt-get because previous images clear this cache
