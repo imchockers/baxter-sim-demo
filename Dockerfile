@@ -18,7 +18,8 @@ RUN wstool init . && \
     wstool update
 
 RUN git clone https://github.com/imchockers/ros-tf-time-jump.git
-RUN git clone https://github.com/imchockers/kinect_based_arm_tracking.git
+RUN cd . & cd .
+RUN git clone -b pose-branch https://github.com/imchockers/kinect_based_arm_tracking.git
 
 # Update apt-get because previous images clear this cache
 # Commands are combined in single RUN statement with "apt/lists" folder removal to reduce image size
@@ -76,4 +77,4 @@ ADD arm_track_sim arm_track_sim
 RUN chmod +x arm_track_sim
 COPY 2019-03-27-14-16-27.bag 2019-03-27-14-16-27.bag
 COPY 2019-03-27-14-20-32.bag 2019-03-27-14-20-32.bag
-COPY demo.bag demo.bag
+COPY autorun autorun

@@ -1,2 +1,3 @@
 #!/bin/bash
+source ./rosenv.sh
 roslaunch baxter_gazebo baxter_world.launch

@@ -1,0 +1,10 @@
+#! /bin/bash
+
+# Source ros environment variables
+source rosenv.sh
+
+# Run simulator
+./simstart &
+
+# Run arm tracking package
+./arm_track_sim &
