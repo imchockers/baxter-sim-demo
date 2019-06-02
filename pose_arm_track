@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 source ./rosenv.sh
 echo "Launching rosbridge websocket server..."
-roslaunch rosbridge_server rosbridge_websocket.launch
+roslaunch rosbridge_server rosbridge_websocket.launch &> websocket.log &
 echo "Running user tracker..."
 rosrun kinect_based_arm_tracking tf_user_tracker.py &> user_tracker.log &
 echo "Running kinect arm controller"
