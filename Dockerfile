@@ -18,8 +18,9 @@ RUN wstool init . && \
     wstool update
 
 RUN git clone https://github.com/imchockers/ros-tf-time-jump.git
-RUN cd . & cd .
+ADD https://api.github.com/repos/imchockers/kinect_based_arm_tracking/git/refs/heads/pose-branch version.json
 RUN git clone -b pose-branch https://github.com/imchockers/kinect_based_arm_tracking.git
+RUN git clone https://github.com/RobotWebTools/rosbridge_suite.git
 
 # Update apt-get because previous images clear this cache
 # Commands are combined in single RUN statement with "apt/lists" folder removal to reduce image size
@@ -78,3 +79,4 @@ RUN chmod +x arm_track_sim
 COPY 2019-03-27-14-16-27.bag 2019-03-27-14-16-27.bag
 COPY 2019-03-27-14-20-32.bag 2019-03-27-14-20-32.bag
 COPY autorun autorun
+COPY local_arm_track local_arm_track

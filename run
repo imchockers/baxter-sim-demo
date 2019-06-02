@@ -6,4 +6,4 @@ echo Waiting for X11 desktop
 
 sleep 2
 docker rm -f vxlab-baxter2
-docker run --network x11 --name vxlab-baxter2 -it -d -e DISPLAY=novnc:0 vxlab-baxter2
+docker run -p 9090:9090 --network x11 --name vxlab-baxter2 -it -d -e DISPLAY=novnc:0 vxlab-baxter2

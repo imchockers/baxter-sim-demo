@@ -7,4 +7,4 @@ source rosenv.sh
 ./simstart &
 
 # Run arm tracking package
-./arm_track_sim &
+./local_arm_track_sim &
