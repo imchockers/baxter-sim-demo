@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 source ./rosenv.sh
+echo "Launching rosbridge websocket server..."
+roslaunch rosbridge_server rosbridge_websocket.launch
 echo "Running user tracker..."
 rosrun kinect_based_arm_tracking tf_user_tracker.py &> user_tracker.log &
 echo "Running kinect arm controller"
 rosrun kinect_based_arm_tracking tf_listen_v8_controller.py &> pose_controller.log &
 echo "Running kinect arm publisher"
 rosrun kinect_based_arm_tracking tf_listen_socket_pub.py &> pose_pub.log &
-echo "Ready! - For rosbag sim run: rosbag play <bagfile> /tf:=/tf_old"
+echo "Ready!"
