@@ -74,10 +74,10 @@ WORKDIR /root
 ADD simstart simstart
 RUN chmod +x simstart
 COPY rosenv.sh rosenv.sh
-ADD arm_track_sim arm_track_sim
-RUN chmod +x arm_track_sim
 COPY 2019-03-27-14-16-27.bag 2019-03-27-14-16-27.bag
 COPY 2019-03-27-14-20-32.bag 2019-03-27-14-20-32.bag
 COPY autorun autorun
 COPY local_arm_track local_arm_track
+RUN chmod +x local_arm_track
 COPY pose_arm_track pose_arm_track
+RUN chmod +x pose_arm_track
